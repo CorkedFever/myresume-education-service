@@ -1,0 +1,6 @@
+@Corkedfever.Education.Service_HostAddress = http://localhost:5033
+
+GET {{Corkedfever.Education.Service_HostAddress}}/education/
+Accept: application/json
+
+###
