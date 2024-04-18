@@ -28,7 +28,9 @@ namespace Corkedfever.Education.Data
                     Degree = education.Degree,
                     Major = education.Major,
                     Minor = education.Minor,
-                    GraduationDate = education.GraduationDate
+                    GraduationDate = education.GraduationDate,
+                    CreatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Now
                 };
                 context.Education.Add(newEducation);
                 context.SaveChanges();
