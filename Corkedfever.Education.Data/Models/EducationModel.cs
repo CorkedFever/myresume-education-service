@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Corkedfever.Education.Data.Models
+namespace Corkedfever.Educations.Data.Models
 {
     public class EducationModel
     {

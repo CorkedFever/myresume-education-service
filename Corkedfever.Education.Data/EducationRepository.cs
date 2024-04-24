@@ -1,8 +1,9 @@
-﻿using Corkedfever.Education.Data.Models;
+﻿using Corkedfever.Educations.Data.Models;
 using Corkedfever.Common.Data;
 using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.EntityFrameworkCore;
-namespace Corkedfever.Education.Data
+using Corkedfever.Common.Data.DBModels;
+namespace Corkedfever.Educations.Data
 {
     public interface IEducationRepository
     {
@@ -20,9 +21,12 @@ namespace Corkedfever.Education.Data
         }
         public void CreateEducation(EducationModel education)
         {
-            using (var context = _context.CreateDbContext())
+            using (var dbContext = _context.CreateDbContext())
             {
-                var newEducation = new Corkedfever.Common.Data.DBModels.Education
+                var something = dbContext.Email.FirstOrDefault();
+                var something2 = dbContext.Skill.FirstOrDefault();
+                var Something3 = dbContext.Education.FirstOrDefault();
+                var newEducation = new Education
                 { 
                     SchoolName = education.SchoolName,
                     Degree = education.Degree,
@@ -32,16 +36,16 @@ namespace Corkedfever.Education.Data
                     CreatedDate = DateTime.Now,
                     UpdatedDate = DateTime.Now
                 };
-                context.Education.Add(newEducation);
-                context.SaveChanges();
+                dbContext.Education.Add(newEducation);
+                dbContext.SaveChanges();
             }   
         }
 
         public EducationModel GetEducationById(int id)
         {
-            using (var context = _context.CreateDbContext())
+            using (var dbContext = _context.CreateDbContext())
             {
-                var educationEntry = context.Education.FirstOrDefault(i => i.Id == id);
+                var educationEntry = dbContext.Education.FirstOrDefault(i => i.Id == id);
                 if (educationEntry == null)
                 {
                     return null;
@@ -59,9 +63,9 @@ namespace Corkedfever.Education.Data
 
         public EducationModel GetEducationByName(string name)
         {
-            using (var context = _context.CreateDbContext())
+            using (var dbContext = _context.CreateDbContext())
             {
-                var educationEntry = context.Education.FirstOrDefault(i => i.SchoolName.ToLower() == name.ToLower());
+                var educationEntry = dbContext.Education.FirstOrDefault(i => i.SchoolName.ToLower() == name.ToLower());
                 if (educationEntry == null)
                 {
                     return null;
@@ -79,9 +83,9 @@ namespace Corkedfever.Education.Data
 
         public List<EducationModel> GetEducations()
         {
-            using (var context = _context.CreateDbContext())
+            using (var dbContext = _context.CreateDbContext())
             {
-                var educationEntries = context.Education.ToList();
+                var educationEntries = dbContext.Education.ToList();
                 if (educationEntries == null)
                 {
                     return null;

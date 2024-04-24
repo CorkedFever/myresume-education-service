@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using Corkedfever.Education.Data;
-using Corkedfever.Education.Data.Models;
-namespace Corkedfever.Education.Business
+using Corkedfever.Educations.Data;
+using Corkedfever.Educations.Data.Models;
+namespace Corkedfever.Educations.Business
 {
     public interface IEducationService
     {

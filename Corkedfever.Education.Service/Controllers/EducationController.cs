@@ -1,9 +1,9 @@
-﻿using Corkedfever.Education.Business;
-using Corkedfever.Education.Data.Models;
+﻿using Corkedfever.Educations.Business;
+using Corkedfever.Educations.Data.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Corkedfever.Education.Service.Controllers
+namespace Corkedfever.Educations.Service.Controllers
 {
     [Route("[controller]")]
     [ApiController]
@@ -16,7 +16,7 @@ namespace Corkedfever.Education.Service.Controllers
             _educationService = educationService;
         }
 
-        [HttpGet]
+        [HttpGet("GetEducations")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public IActionResult Get()
         {
