@@ -1,0 +1,12 @@
+{
+  "runtime": "Net60",
+  "defaultVariables": null,
+  "documentGenerator": {
+    "fromDocument": {
+      "url": "http://localhost:26012/swagger/v1/swagger.json",
+      "output": null,
+      "newLineBehavior": "Auto"
+    }
+  },
+  "codeGenerators": {}
+}
