@@ -17,7 +17,8 @@ namespace Corkedfever.Educations.Service.Controllers
         }
 
         [HttpGet("GetEducations")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<EducationModel>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult Get()
         {
             try
@@ -33,7 +34,8 @@ namespace Corkedfever.Educations.Service.Controllers
         
         [HttpGet]
         [Route("GetEducation/{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(EducationModel), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult Get(int id)
         {
             try
@@ -48,7 +50,8 @@ namespace Corkedfever.Educations.Service.Controllers
         
         [HttpGet]
         [Route("GetEducationByName")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(EducationModel), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult Get(string name)
         {
             try
@@ -64,6 +67,7 @@ namespace Corkedfever.Educations.Service.Controllers
         [HttpPost]
         [Route("CreateEducation")]
         [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult Post([FromBody] EducationModel education)
         {
             try
