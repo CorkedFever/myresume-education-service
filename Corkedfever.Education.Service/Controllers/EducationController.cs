@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Corkedfever.Educations.Service.Controllers
 {
-    [Route("[controller]")]
+    [Route("educations")]
     [ApiController]
     public class EducationController : ControllerBase
     {
@@ -19,7 +19,7 @@ namespace Corkedfever.Educations.Service.Controllers
         [HttpGet("GetEducations")]
         [ProducesResponseType(typeof(List<EducationModel>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult Get()
+        public IActionResult GetEducations()
         {
             try
             {
@@ -32,11 +32,10 @@ namespace Corkedfever.Educations.Service.Controllers
             }
         }
         
-        [HttpGet]
-        [Route("GetEducation/{id}")]
+        [HttpGet("GetEducation/{id}")]
         [ProducesResponseType(typeof(EducationModel), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult Get(int id)
+        public IActionResult GetEducationById(int id)
         {
             try
             {
@@ -48,11 +47,10 @@ namespace Corkedfever.Educations.Service.Controllers
             }
         }
         
-        [HttpGet]
-        [Route("GetEducationByName")]
+        [HttpGet("GetEducationByName")]
         [ProducesResponseType(typeof(EducationModel), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult Get(string name)
+        public IActionResult GetEducationByName(string name)
         {
             try
             {
@@ -64,11 +62,10 @@ namespace Corkedfever.Educations.Service.Controllers
             }
         }
 
-        [HttpPost]
-        [Route("CreateEducation")]
+        [HttpPost("CreateEducation")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult Post([FromBody] EducationModel education)
+        public IActionResult CreateEducation([FromBody] EducationModel education)
         {
             try
             {
